@@ -21,25 +21,60 @@ st.set_page_config(
 def load_data():
     """Load the cleaned dataset"""
     try:
-        df = pd.read_csv("/Users/sittminthar/Desktop/BigData Dev/detailed_cleaned_egypt_real_estate.csv")
+        # Try to load data with different possible paths
+        possible_paths = [
+            "detailed_cleaned_egypt_real_estate.csv",
+            "/Users/sittminthar/Desktop/BigData Dev/detailed_cleaned_egypt_real_estate.csv",
+            os.path.join(os.path.dirname(__file__), "detailed_cleaned_egypt_real_estate.csv")
+        ]
+        
+        df = None
+        for path in possible_paths:
+            try:
+                if os.path.exists(path):
+                    df = pd.read_csv(path)
+                    break
+            except:
+                continue
+                
+        if df is None:
+            st.error("Dataset file not found. Please make sure the file exists.")
+            return None
         return df
-    except FileNotFoundError:
-        st.error("Dataset file not found. Please make sure the file exists at the specified path.")
+    except Exception as e:
+        st.error(f"Error loading dataset: {str(e)}")
         return None
 
 def load_eda_data():
     """Load EDA data"""
-    eda_dir = "/Users/sittminthar/Desktop/BigData Dev/eda_output"
+    eda_dir = "eda_output"
+    possible_paths = [
+        eda_dir,
+        "/Users/sittminthar/Desktop/BigData Dev/eda_output",
+        os.path.join(os.path.dirname(__file__), "eda_output")
+    ]
+    
+    # Find the correct EDA directory
+    correct_eda_dir = None
+    for path in possible_paths:
+        if os.path.exists(path):
+            correct_eda_dir = path
+            break
+    
+    if correct_eda_dir is None:
+        st.warning("EDA files not found. Some visualizations may not be available.")
+        return None, None, None, None, None, None
+    
     try:
-        summary_stats = pd.read_csv(f"{eda_dir}/summary_statistics.csv")
-        correlation_matrix = pd.read_csv(f"{eda_dir}/correlation_matrix.csv")
-        missing_values = pd.read_csv(f"{eda_dir}/missing_values_report.csv")
-        property_type_dist = pd.read_csv(f"{eda_dir}/property_type_distribution.csv")
-        price_stats = pd.read_csv(f"{eda_dir}/price_statistics.csv")
-        top_locations = pd.read_csv(f"{eda_dir}/top_locations.csv")
+        summary_stats = pd.read_csv(f"{correct_eda_dir}/summary_statistics.csv")
+        correlation_matrix = pd.read_csv(f"{correct_eda_dir}/correlation_matrix.csv")
+        missing_values = pd.read_csv(f"{correct_eda_dir}/missing_values_report.csv")
+        property_type_dist = pd.read_csv(f"{correct_eda_dir}/property_type_distribution.csv")
+        price_stats = pd.read_csv(f"{correct_eda_dir}/price_statistics.csv")
+        top_locations = pd.read_csv(f"{correct_eda_dir}/top_locations.csv")
         return summary_stats, correlation_matrix, missing_values, property_type_dist, price_stats, top_locations
     except FileNotFoundError:
-        st.error("EDA files not found. Please make sure EDA has been run and files exist.")
+        st.warning("Some EDA files are missing. Some visualizations may not be available.")
         return None, None, None, None, None, None
 
 def main():
@@ -79,7 +114,10 @@ def main():
         col4.metric("Data Completeness", f"{((df.size - df.isnull().sum().sum()) / df.size) * 100:.1f}%")
         
         st.subheader("Property Types Distribution")
-        st.dataframe(property_type_dist)
+        if property_type_dist is not None:
+            st.dataframe(property_type_dist)
+        else:
+            st.write("Property type distribution data not available.")
         
         # Create a bar chart of property types
         fig, ax = plt.subplots(figsize=(10, 6))
@@ -92,7 +130,10 @@ def main():
         st.pyplot(fig)
         
         st.subheader("Missing Values Report")
-        st.dataframe(missing_values)
+        if missing_values is not None:
+            st.dataframe(missing_values)
+        else:
+            st.write("Missing values data not available.")
     
     # Tab 2: Property Attributes
     with tab2:
@@ -132,7 +173,16 @@ def main():
         
         with col1:
             st.subheader("Price Statistics")
-            st.dataframe(price_stats)
+            if price_stats is not None:
+                st.dataframe(price_stats)
+            else:
+                # Calculate basic stats if file not available
+                price_stats_data = {
+                    'Statistic': ['Mean', 'Median', 'Min', 'Max'],
+                    'Value': [f"{df['price'].mean():,.2f}", f"{df['price'].median():,.2f}", 
+                             f"{df['price'].min():,}", f"{df['price'].max():,}"]
+                }
+                st.dataframe(pd.DataFrame(price_stats_data))
             
         with col2:
             st.subheader("Price Distribution")
@@ -191,7 +241,10 @@ def main():
         st.header("PropertyParams Location Analysis")
         
         st.subheader("Top Locations")
-        st.dataframe(top_locations)
+        if top_locations is not None:
+            st.dataframe(top_locations)
+        else:
+            st.write("Top locations data not available.")
         
         st.subheader("Properties by Location")
         fig, ax = plt.subplots(figsize=(12, 8))
@@ -213,8 +266,8 @@ def main():
             st.subheader("Correlation Heatmap")
             fig, ax = plt.subplots(figsize=(10, 8))
             # Create a heatmap using seaborn
-            sns.heatmap(correlation_matrix.set_index(correlation_matrix.columns[0]), 
-                        annot=True, cmap='coolwarm', center=0, square=True, linewidths=0.5)
+            corr_data = correlation_matrix.set_index(correlation_matrix.columns[0])
+            sns.heatmap(corr_data, annot=True, cmap='coolwarm', center=0, square=True, linewidths=0.5)
             ax.set_title('Correlation Matrix of Numeric Variables')
             st.pyplot(fig)
         else:

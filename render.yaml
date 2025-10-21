@@ -7,4 +7,4 @@ services:
     startCommand: "streamlit run real_estate_dashboard_app.py --server.port $PORT"
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.16
+        value: 3.11.4
