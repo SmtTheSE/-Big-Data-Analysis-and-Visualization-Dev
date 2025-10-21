@@ -1,4 +1,4 @@
-it import streamlit as st
+import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -14,7 +14,6 @@ sns.set_palette("husl")
 # Configure the page
 st.set_page_config(
     page_title="Egypt Real Estate Dashboard",
-    page_icon="🏘️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -45,7 +44,7 @@ def load_eda_data():
 
 def main():
     # Title and description
-    st.title("🏘️ Egypt Real Estate Dashboard")
+    st.title("Egypt Real Estate Dashboard")
     st.markdown("""
     This dashboard presents a comprehensive analysis of the Egypt real estate market.
     Navigate through the tabs to explore different aspects of the data.
@@ -61,12 +60,12 @@ def main():
     
     # Create tabs
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-        "📊 Overview", 
+        "Overview", 
         "PropertyParams", 
-        "💰 Price Analysis", 
-        "📐 Size Analysis", 
-        "📍 Location Analysis", 
-        "📈 Correlations"
+        "Price Analysis", 
+        "Size Analysis", 
+        "Location Analysis", 
+        "Correlations"
     ])
     
     # Tab 1: Overview
