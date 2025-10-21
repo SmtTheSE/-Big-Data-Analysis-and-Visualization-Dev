@@ -21,14 +21,29 @@ st.set_page_config(
 def load_data():
     """Load the cleaned dataset"""
     try:
-        # Use the specific path for latest cleaned data
-        file_path = "/Users/sittminthar/Desktop/BigData Dev/latest_cleaned_egypt_real_estate.csv"
-        if os.path.exists(file_path):
-            df = pd.read_csv(file_path)
-            return df
-        else:
-            st.error(f"Dataset file not found at {file_path}")
+        # Try to load data with different possible paths
+        possible_paths = [
+            "latest_cleaned_egypt_real_estate.csv",
+            "/Users/sittminthar/Desktop/BigData Dev/latest_cleaned_egypt_real_estate.csv",
+            os.path.join(os.path.dirname(__file__), "latest_cleaned_egypt_real_estate.csv"),
+            "detailed_cleaned_egypt_real_estate.csv",
+            "/Users/sittminthar/Desktop/BigData Dev/detailed_cleaned_egypt_real_estate.csv",
+            os.path.join(os.path.dirname(__file__), "detailed_cleaned_egypt_real_estate.csv")
+        ]
+        
+        df = None
+        for path in possible_paths:
+            try:
+                if os.path.exists(path):
+                    df = pd.read_csv(path)
+                    break
+            except:
+                continue
+                
+        if df is None:
+            st.error("Dataset file not found. Please make sure the file exists.")
             return None
+        return df
     except Exception as e:
         st.error(f"Error loading dataset: {str(e)}")
         return None
