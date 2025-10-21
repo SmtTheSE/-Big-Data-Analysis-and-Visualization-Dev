@@ -301,10 +301,12 @@ def create_summary_report(df, eda_output_dir, dashboard_output_dir):
             if missing_count > 0:
                 pct = (missing_count / len(df)) * 100
                 f.write(f"  - {col}: {missing_count:,} ({pct:.1f}%)\n")
+        if total_missing == 0:
+            f.write("  No missing data found!\n")
 
 if __name__ == "__main__":
     # Define paths
-    cleaned_data_file = "/Users/sittminthar/Desktop/BigData Dev/detailed_cleaned_egypt_real_estate.csv"
+    cleaned_data_file = "/Users/sittminthar/Desktop/BigData Dev/latest_cleaned_egypt_real_estate.csv"
     eda_output_dir = "/Users/sittminthar/Desktop/BigData Dev/eda_output"
     dashboard_output_dir = "/Users/sittminthar/Desktop/BigData Dev/dashboard_output"
     

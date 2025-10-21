@@ -8,7 +8,7 @@ warnings.filterwarnings('ignore')
 
 # Set style for better-looking plots
 plt.style.use('seaborn-v0_8')
-sns.set_palette("husl")
+sns.set_palette("Blues_r")  # Reversed blues for better contrast
 
 def perform_eda(input_file, output_dir):
     """
@@ -157,8 +157,9 @@ def perform_eda(input_file, output_dir):
     
     # Plot correlation heatmap
     plt.figure(figsize=(10, 8))
-    sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', center=0, 
-                square=True, linewidths=0.5, cbar_kws={"shrink": .8})
+    sns.heatmap(corr_matrix, annot=True, cmap='Blues', center=0, 
+                square=True, linewidths=0.5, cbar_kws={"shrink": .8},
+                annot_kws={"size": 12})
     plt.title('Correlation Matrix of Numeric Variables', fontsize=16)
     plt.tight_layout()
     plt.savefig(f"{output_dir}/correlation_heatmap.png", dpi=300, bbox_inches='tight')
