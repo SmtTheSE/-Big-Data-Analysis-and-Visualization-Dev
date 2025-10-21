@@ -3,13 +3,13 @@
 # Exit on error
 set -e
 
-# Explicitly use Python 3.10
+# Explicitly set Python version
 export PYTHON_VERSION=3.10.8
 
 # Upgrade pip and build tools
 pip install --upgrade pip setuptools wheel
 
-# Force use of pre-compiled wheels (avoid building from source)
-pip install --only-binary=all -r requirements.txt
+# Install packages with preference for wheels and fallback strategy
+pip install --prefer-binary --no-cache-dir -r requirements.txt
 
 echo "Build completed successfully!"
