@@ -16,10 +16,10 @@ A comprehensive dashboard for analyzing the Egypt real estate market.
 2. Create a new Web Service on Render
 3. Connect your repository
 4. Configure the following settings:
-   - Build Command: `pip install -r requirements.txt`
+   - Build Command: `./build.sh`
    - Start Command: `streamlit run real_estate_dashboard_app.py --server.port $PORT`
    - Environment Variables:
-     - `PYTHON_VERSION`: `3.11.4`
+     - `PYTHON_VERSION`: `3.10.8`
 
 ## Local Development
 
@@ -46,3 +46,4 @@ If you encounter issues during deployment:
 1. Check that all data files are included in the repository
 2. Ensure file paths in the code match your repository structure
 3. Verify that all dependencies are listed in requirements.txt
+4. Make sure the build.sh script has execute permissions

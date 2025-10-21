@@ -1,6 +1,6 @@
 EGYPT REAL ESTATE DATA CLEANING LOG
 ===================================
-Start time: 2025-10-21 13:42:12.002618
+Start time: 2025-10-21 14:13:12.913975
 Input file: /Users/sittminthar/Desktop/BigData Dev/egypt_real_estate_listings.csv
 Output file: /Users/sittminthar/Desktop/BigData Dev/detailed_cleaned_egypt_real_estate.csv
 
@@ -106,4 +106,4 @@ Price statistics:
 
 Cleaned dataset saved to: /Users/sittminthar/Desktop/BigData Dev/detailed_cleaned_egypt_real_estate.csv
 
-Data cleaning process completed at: 2025-10-21 13:42:12.630108
+Data cleaning process completed at: 2025-10-21 14:13:13.527136

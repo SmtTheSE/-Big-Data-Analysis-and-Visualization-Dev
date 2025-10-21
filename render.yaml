@@ -3,8 +3,8 @@ services:
     name: egypt-real-estate-dashboard
     env: python
     plan: free
-    buildCommand: "pip install -r requirements.txt"
+    buildCommand: "./build.sh"
     startCommand: "streamlit run real_estate_dashboard_app.py --server.port $PORT"
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.4
+        value: 3.10.8
