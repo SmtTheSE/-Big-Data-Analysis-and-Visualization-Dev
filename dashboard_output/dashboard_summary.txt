@@ -1,0 +1,63 @@
+EGYPT REAL ESTATE ANALYSIS DASHBOARD SUMMARY
+==================================================
+
+Report generated on: 2025-10-21 13:47:49.675597
+
+1. DATASET OVERVIEW
+------------------
+Total Properties Analyzed: 19,115
+Total Attributes: 12
+Total Data Points: 229,380
+Missing Data Points: 14,850
+
+2. PROPERTY TYPES
+---------------
+1. Apartment: 8,278 (43.3%)
+2. Chalet: 3,968 (20.8%)
+3. Villa: 3,149 (16.5%)
+4. Townhouse: 1,267 (6.6%)
+5. Twin House: 791 (4.1%)
+
+3. PRICE ANALYSIS
+---------------
+Average Price: 14,415,254 EGP
+Median Price: 10,100,000 EGP
+Price Range: 186,900 - 87,380,615 EGP
+Standard Deviation: 13,170,164 EGP
+
+4. PROPERTY CHARACTERISTICS
+-------------------------
+Average Bedrooms: 2.96
+Median Bedrooms: 3
+Average Bathrooms: 2.87
+Median Bathrooms: 3
+Average Size: 1034.57 sqm
+Median Size: 170 sqm
+
+5. KEY INSIGHTS
+------------
+1. Apartments, Chalets, and Villas represent the majority of listings
+2. Price distribution is heavily right-skewed with a few very expensive properties
+3. Most properties have 2-4 bedrooms and 2-3 bathrooms
+4. There's a strong correlation between price and number of bedrooms/bathrooms
+5. Location significantly impacts property prices
+6. Price per square meter varies considerably by property type
+
+6. TOP LOCATIONS
+--------------
+1. Marassi, Sidi Abdel Rahman, North Coast: 391 properties
+2. Mountain View iCity, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 387 properties
+3. Madinaty, Cairo: 354 properties
+4. Hyde Park, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 351 properties
+5. Palm Hills New Cairo, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 318 properties
+
+7. DATA QUALITY
+-------------
+Overall Data Completeness: 93.5%
+Columns with Missing Data:
+  - description: 1 (0.0%)
+  - bedrooms: 432 (2.3%)
+  - bathrooms: 150 (0.8%)
+  - available_from: 533 (2.8%)
+  - payment_method: 1 (0.0%)
+  - down_payment: 13,733 (71.8%)

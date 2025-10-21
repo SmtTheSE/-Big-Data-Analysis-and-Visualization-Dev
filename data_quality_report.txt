@@ -1,0 +1,81 @@
+EGYPT REAL ESTATE DATA QUALITY REPORT
+==================================================
+
+1. DATASET OVERVIEW
+--------------------
+Total Rows: 19115
+Total Columns: 12
+Total Cells: 229380
+
+2. COLUMN INFORMATION
+--------------------
+url: object
+price: int64
+description: object
+location: object
+type: object
+size: object
+bedrooms: float64
+bathrooms: float64
+available_from: object
+payment_method: object
+down_payment: object
+size_sqm: float64
+
+3. MISSING VALUES
+---------------
+description: 1 (0.01%)
+bedrooms: 432 (2.26%)
+bathrooms: 150 (0.78%)
+available_from: 533 (2.79%)
+payment_method: 1 (0.01%)
+down_payment: 13733 (71.84%)
+
+4. DUPLICATE ROWS
+---------------
+Duplicate Rows: 0
+
+5. STATISTICAL SUMMARY
+--------------------
+              price      bedrooms     bathrooms      size_sqm
+count  1.911500e+04  18683.000000  18965.000000  1.911500e+04
+mean   1.441525e+07      2.958304      2.869602  1.034569e+03
+std    1.317016e+07      1.038663      1.198733  1.143652e+05
+min    1.869000e+05      1.000000      1.000000  1.000000e+00
+25%    6.000000e+06      2.000000      2.000000  1.250000e+02
+50%    1.010000e+07      3.000000      3.000000  1.700000e+02
+75%    1.800000e+07      3.000000      4.000000  2.340000e+02
+max    8.738062e+07      7.000000      7.000000  1.581169e+07
+
+6. PROPERTY TYPE DISTRIBUTION
+------------------------------
+Apartment: 8278
+Chalet: 3968
+Villa: 3149
+Townhouse: 1267
+Twin House: 791
+Duplex: 612
+Penthouse: 559
+iVilla: 262
+Hotel Apartment: 102
+Land: 56
+Cabin: 37
+Whole Building: 13
+Palace: 7
+Roof: 6
+Full Floor: 4
+Bulk Sale Unit: 3
+Bungalow: 1
+
+7. TOP 10 LOCATIONS
+------------------
+Marassi, Sidi Abdel Rahman, North Coast: 391
+Mountain View iCity, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 387
+Madinaty, Cairo: 354
+Hyde Park, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 351
+Palm Hills New Cairo, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 318
+Silver Sands, Qesm Marsa Matrouh, North Coast: 285
+O West, 6 October Compounds, 6 October City, Giza: 279
+Sarai, Mostakbal City Compounds, Mostakbal City - Future City, Cairo: 262
+Mountain View iCity October, 6 October Compounds, 6 October City, Giza: 256
+Mivida, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 226

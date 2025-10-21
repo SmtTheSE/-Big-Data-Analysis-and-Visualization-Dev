@@ -1,0 +1,110 @@
+EGYPT REAL ESTATE EXPLORATORY DATA ANALYSIS REPORT
+============================================================
+
+Report generated on: 2025-10-21 13:44:58.612368
+
+1. DATASET OVERVIEW
+--------------------
+Total Rows: 19,115
+Total Columns: 13
+Total Data Points: 248,495
+
+2. COLUMN INFORMATION
+--------------------
+url: object
+price: int64
+description: object
+location: object
+type: object
+size: object
+bedrooms: float64
+bathrooms: float64
+available_from: object
+payment_method: object
+down_payment: object
+size_sqm: float64
+price_per_sqm: float64
+
+3. MISSING VALUES SUMMARY
+-------------------------
+description: 1 (0.01%)
+bedrooms: 432 (2.26%)
+bathrooms: 150 (0.78%)
+available_from: 533 (2.79%)
+payment_method: 1 (0.01%)
+down_payment: 13,733 (71.84%)
+
+4. PROPERTY TYPE DISTRIBUTION
+------------------------------
+Apartment: 8,278 (43.31%)
+Chalet: 3,968 (20.76%)
+Villa: 3,149 (16.47%)
+Townhouse: 1,267 (6.63%)
+Twin House: 791 (4.14%)
+Duplex: 612 (3.20%)
+Penthouse: 559 (2.92%)
+iVilla: 262 (1.37%)
+Hotel Apartment: 102 (0.53%)
+Land: 56 (0.29%)
+Cabin: 37 (0.19%)
+Whole Building: 13 (0.07%)
+Palace: 7 (0.04%)
+Roof: 6 (0.03%)
+Full Floor: 4 (0.02%)
+Bulk Sale Unit: 3 (0.02%)
+Bungalow: 1 (0.01%)
+
+5. PRICE STATISTICS
+------------------
+Mean Price: 14,415,254.37 EGP
+Median Price: 10,100,000.00 EGP
+Standard Deviation: 13,170,163.97 EGP
+Minimum Price: 186,900 EGP
+Maximum Price: 87,380,615 EGP
+25th Percentile: 6,000,000.00 EGP
+75th Percentile: 18,000,000.00 EGP
+
+6. BEDROOMS AND BATHROOMS STATISTICS
+----------------------------------------
+Mean Bedrooms: 2.96
+Median Bedrooms: 3.00
+Mean Bathrooms: 2.87
+Median Bathrooms: 3.00
+
+7. SIZE STATISTICS
+-----------------
+Mean Size: 1034.57 sqm
+Median Size: 170.00 sqm
+Standard Deviation: 114365.19 sqm
+Minimum Size: 1.00 sqm
+Maximum Size: 15,811,692.00 sqm
+
+8. CORRELATION ANALYSIS
+----------------------
+Correlation with Price:
+bathrooms: 0.5846
+bedrooms: 0.5102
+price_per_sqm: 0.2169
+size_sqm: -0.0008
+
+9. TOP LOCATIONS
+---------------
+Marassi, Sidi Abdel Rahman, North Coast: 391
+Mountain View iCity, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 387
+Madinaty, Cairo: 354
+Hyde Park, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 351
+Palm Hills New Cairo, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 318
+Silver Sands, Qesm Marsa Matrouh, North Coast: 285
+O West, 6 October Compounds, 6 October City, Giza: 279
+Sarai, Mostakbal City Compounds, Mostakbal City - Future City, Cairo: 262
+Mountain View iCity October, 6 October Compounds, 6 October City, Giza: 256
+Mivida, 5th Settlement Compounds, The 5th Settlement, New Cairo City, Cairo: 226
+
+10. KEY INSIGHTS
+--------------
+1. Apartments, Chalets, and Villas make up the majority of listings
+2. Price distribution is heavily right-skewed, with a few very expensive properties
+3. Most properties have 2-4 bedrooms and 2-3 bathrooms
+4. Property prices show moderate correlation with size
+5. Location significantly impacts property prices
+6. Price per square meter varies considerably by property type
