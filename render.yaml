@@ -8,3 +8,5 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.8
+      - key: PIP_DISABLE_PIP_VERSION_CHECK
+        value: 1
