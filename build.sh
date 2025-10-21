@@ -3,6 +3,9 @@
 # Exit on error
 set -e
 
+# Explicitly use Python 3.10
+export PYTHON_VERSION=3.10.8
+
 # Upgrade pip
 pip install --upgrade pip setuptools wheel
 
