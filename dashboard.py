@@ -460,11 +460,18 @@ def update_graphs(selected_gender, age_range):
     fig1 = update_figure_layout(fig1)
     
     # 2. Age vs Cost Scatter
-    fig2 = px.scatter(filtered_df, x='age', y='annual_medical_cost', 
-                      title='',
-                      labels={'age': 'Age (years)', 'annual_medical_cost': 'Annual Medical Cost ($)'},
-                      color_discrete_sequence=[chart_colors[1]],
-                      trendline='ols')
+    try:
+        fig2 = px.scatter(filtered_df, x='age', y='annual_medical_cost', 
+                          title='',
+                          labels={'age': 'Age (years)', 'annual_medical_cost': 'Annual Medical Cost ($)'},
+                          color_discrete_sequence=[chart_colors[1]],
+                          trendline='ols')
+    except ImportError:
+        # Fallback if statsmodels is not available
+        fig2 = px.scatter(filtered_df, x='age', y='annual_medical_cost', 
+                          title='',
+                          labels={'age': 'Age (years)', 'annual_medical_cost': 'Annual Medical Cost ($)'},
+                          color_discrete_sequence=[chart_colors[1]])
     fig2 = update_figure_layout(fig2)
     
     # 3. BMI vs Cost by Smoking Status
