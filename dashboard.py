@@ -1,16 +1,13 @@
 import dash
-from dash import dcc, html, Input, Output, dash_table
+from dash import dcc, html, Input, Output
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
+import os
 
 # Load the dataset
 df = pd.read_csv('[Final Project]medical_insurance.csv')
-
-# Create the Dash app
-app = dash.Dash(__name__)
-server = app.server
 
 # Color palette for charts (vibrant but harmonious)
 chart_colors = [
@@ -27,11 +24,13 @@ chart_colors = [
 ]
 
 # External CSS for Apple fonts and styling
+# Create the Dash app
 external_stylesheets = [
     'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
 ]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 
 app.index_string = '''
 <!DOCTYPE html>
@@ -536,6 +535,7 @@ def update_graphs(selected_gender, age_range):
     
     return fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8
 
-# Run the app
+# For Render deployment
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 8050))
+    app.run(host='0.0.0.0', port=port, debug=False)
