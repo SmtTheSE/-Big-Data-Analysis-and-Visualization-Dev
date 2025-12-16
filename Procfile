@@ -1,1 +1,1 @@
-web: gunicorn heroku_ready_dashboard:server
+web: gunicorn --bind 0.0.0.0:$PORT heroku_ready_dashboard:server

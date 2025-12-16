@@ -537,7 +537,7 @@ def update_graphs(selected_gender, age_range):
     
     return fig1, fig2, fig3, fig4, fig5, fig6, fig7, fig8
 
-# For Heroku deployment
+# For Render deployment
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8050))
     app.run_server(host='0.0.0.0', port=port, debug=False)
